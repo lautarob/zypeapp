@@ -1,0 +1,27 @@
+<% if @errors %>
+  <%= @errors[:message] %>
+<% else %>
+  <div class="recommended">
+    <div class="recommended-grids">
+      <div class="recommended-info">
+        <h1>Recommended videos</h1>
+      </div>
+      <% @videos.each do |video| %>
+        <div class="col-md-3 resent-grid recommended-grid">
+          <div class="resent-grid-img recommended-grid-img">
+            <a href="<%= video_path(video._id) %>"><img src="<%= video.image_url %>" alt="" /></a>
+          </div>
+          <div class="resent-grid-info recommended-grid-info video-info-grid">
+            <h5><a href="single.html" class="title"><%= video.title %></a></h5>
+            <div class="time-container">
+              <div class="clck small-clck">
+                <span class="glyphicon glyphicon-time clck-icon" aria-hidden="true"></span>
+                <p class="clck-time"><%= Time.at(video.duration).utc.strftime("%H:%M:%S") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

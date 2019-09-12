@@ -1,0 +1,39 @@
+<% if @video.errors %>
+  <%= @video.errors[:message] %>
+<% else %>
+<div class="show-top-grids">
+  <div class="col-sm-8 single-left">
+    <div class="song">
+      <div class="song-info">
+        <h3><%= @video.title %></h3>	
+    </div>
+      <div class="video-grid">
+        <div id="<%= @video.zype_id %>"></div>
+          <script src="<%= @video.zype_script %>" type="text/javascript"></script>
+        </div>
+      </div>
+    </div>
+    	<div class="song-grid-right">
+        <div class="share">
+          <h5>Share this</h5>
+          <ul>
+            <li><a href="#" class="icon fb-icon">Facebook</a></li>
+            <li><a href="#" class="icon dribbble-icon">Dribbble</a></li>
+            <li><a href="#" class="icon twitter-icon">Twitter</a></li>
+            <li><a href="#" class="icon pinterest-icon">Pinterest</a></li>
+            <li><a href="#" class="icon whatsapp-icon">Whatsapp</a></li>
+            <li><a href="#" class="icon like">Like</a></li>
+            <li><a href="#" class="icon comment-icon">Comments</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="clearfix"> </div>
+    <div class="published col-sm-8">
+      <div class="load_more">	
+      <h4>Published at <%= @video.published_at.to_time.utc.to_formatted_s(:long_ordinal) %></h4>
+      <p><%= @video.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
