@@ -31,13 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faraday'
 
-group :production do
-  gem 'pg'
-end
-
 group :development, :test do
-  gem 'sqlite3'
-
   gem 'pry'
   gem 'byebug'
 
